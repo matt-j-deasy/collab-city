@@ -1,5 +1,6 @@
-import { initialBlogPosts } from "../util/static";
-import { BlogPost } from "./BlogPost/BlogPost";
+import { initialBlogPosts } from "../../util/static";
+import { BlogPost } from "../BlogPost/BlogPost";
+import "./styles.css";
 
 function App() {
   return (
