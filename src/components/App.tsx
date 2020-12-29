@@ -1,13 +1,40 @@
+import { useEffect, useState } from "react";
+import { orderBlogPostsByCreatedDate } from "../util/blogpost";
 import { initialBlogPosts } from "../util/static";
+import { BlogPost as BlogPostType } from "../util/types";
 import { BlogPost } from "./BlogPost/BlogPost";
 
 function App() {
+  // Save a list of blog posts in app state. The list will be an empty array
+  // until we have ordered the posts and called the "setter" for this state variable
+  const [orderedBlogPosts, setOrderedBlogPosts] = useState<BlogPostType[]>([]);
+
+  // A useEffect is a function that React runs when a certain condition is met.
+  // The function always runs whenever the component mounts or unmounts.  It
+  // Also runs whenever variables in the dependency array change.
+  // This function will run once when the app starts, once when the app shuts down
+  // and ANYTIME the variable: initialBlogPosts change. Thats what we want because
+  // we want to ensure things are ordered anytime our list changes.
+  useEffect(
+    function orderBlogPosts() {
+      // Step 1: Order the blog posts by calling our utility function
+      const blogPostsAfterOrdering: BlogPostType[] = orderBlogPostsByCreatedDate(
+        initialBlogPosts
+      );
+
+      // Step 2: Set our application state variable to equal this ordered list
+      setOrderedBlogPosts(blogPostsAfterOrdering);
+    },
+    // This is the dependency array. React looks here to determine when to run this function
+    []
+  );
+
   return (
     <div className="App">
       <header>This is a blog website</header>
       <div id="blog-posts-wrapper">
-        {initialBlogPosts.map((blogPost) => {
-          return <BlogPost post={blogPost} />;
+        {orderedBlogPosts.map((blogPost) => {
+          return <BlogPost post={blogPost} key={blogPost.id} />;
         })}
       </div>
     </div>
