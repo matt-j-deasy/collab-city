@@ -1,4 +1,5 @@
 import React from "react";
+import "../App/fonts.css"
 import { BlogPost as BlogPostType } from "../../util/types";
 import "./styles.css";
 
