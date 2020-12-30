@@ -1,5 +1,6 @@
 import React from "react";
 import { getDisplayDate } from "../../util/date";
+import "../App/fonts.css";
 import { BlogPost as BlogPostType } from "../../util/types";
 import "./styles.css";
 

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { orderBlogPostsByCreatedDate } from "../util/blogpost";
-import { initialBlogPosts } from "../util/static";
-import { BlogPost as BlogPostType } from "../util/types";
-import { BlogPost } from "./BlogPost/BlogPost";
+import { orderBlogPostsByCreatedDate } from "../../util/blogpost";
+import { BlogPost as BlogPostType } from "../../util/types";
+import { initialBlogPosts } from "../../util/static";
+import { BlogPost } from "../BlogPost/BlogPost";
+import "./fonts.css";
+import "./styles.css";
 
 function App() {
   // Save a list of blog posts in app state. The list will be an empty array
@@ -31,7 +33,10 @@ function App() {
 
   return (
     <div className="App">
-      <header>This is a blog website</header>
+      <header>
+        <h1>Welcome Matt</h1>
+        <h4>Come On In</h4>
+      </header>
       <div id="blog-posts-wrapper">
         {orderedBlogPosts.map((blogPost) => {
           return <BlogPost post={blogPost} key={blogPost.id} />;
