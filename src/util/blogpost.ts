@@ -7,6 +7,13 @@ import { BlogPost } from "./types";
  */
 export function orderBlogPostsByCreatedDate(posts: BlogPost[]): BlogPost[] {
   // TODO: Implement this function
-
+  posts.sort(function (a, b) {
+    if (a.createdDate > b.createdDate){
+      return -1;
+    } else if (a.createdDate < b.createdDate){
+      return 1;
+    }
+    return 0;
+  });
   return posts;
 }
