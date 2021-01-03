@@ -31,12 +31,20 @@ function App() {
     []
   );
 
+  // Function to set a state variable in app component. This state variable should be a string equal to
+  // "white" or "black". When this button is pressed, set the state to be the other option.
+  const toggleDarkMode = () => {};
+
   return (
-    <div className="App">
+    <div
+      className="App"
+      // style={{backgroundColor: appBackgroundColor}}
+    >
       <header>
         <h1>Welcome Matt</h1>
         <h4>Come On In</h4>
       </header>
+      <button onClick={toggleDarkMode}>Toggle Dark Mode</button>
       <div id="blog-posts-wrapper">
         {orderedBlogPosts.map((blogPost) => {
           return <BlogPost post={blogPost} key={blogPost.id} />;
