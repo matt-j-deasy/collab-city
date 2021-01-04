@@ -5,11 +5,13 @@ import { initialBlogPosts } from "../../util/static";
 import { BlogPost } from "../BlogPost/BlogPost";
 import "./fonts.css";
 import "./styles.css";
+import { domain } from "process";
 
 function App() {
   // Save a list of blog posts in app state. The list will be an empty array
   // until we have ordered the posts and called the "setter" for this state variable
   const [orderedBlogPosts, setOrderedBlogPosts] = useState<BlogPostType[]>([]);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   // A useEffect is a function that React runs when a certain condition is met.
   // The function always runs whenever the component mounts or unmounts.  It
@@ -33,12 +35,16 @@ function App() {
 
   // Function to set a state variable in app component. This state variable should be a string equal to
   // "white" or "black". When this button is pressed, set the state to be the other option.
-  const toggleDarkMode = () => {};
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(prevState => {
+      return !prevState});
+    };
 
   return (
     <div
       className="App"
-      // style={{backgroundColor: appBackgroundColor}}
+      style={{backgroundColor: isDarkMode ? "black" : "white"}}
     >
       <header>
         <h1>Welcome Matt</h1>
