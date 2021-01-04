@@ -5,7 +5,6 @@ import { initialBlogPosts } from "../../util/static";
 import { BlogPost } from "../BlogPost/BlogPost";
 import "./fonts.css";
 import "./styles.css";
-import { domain } from "process";
 
 function App() {
   // Save a list of blog posts in app state. The list will be an empty array
